@@ -1,7 +1,10 @@
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.handler = async event => {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+  console.warn(process.env.SENDGRID_API_KEY);
+
   // Only allow POST
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
