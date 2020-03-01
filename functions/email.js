@@ -25,10 +25,10 @@ exports.handler = async event => {
   // goes to sender
   const second = sgMail.send({
     to: email,
-    from: "noreply@justinawrey.com",
-    subject: "Thanks for the inquiry!",
+    from: "donotreply@justinawrey.com",
+    subject: "Thank you",
     text:
-      "I've received your message and will get back to you as soon as possible.  Please do not respond to this email."
+      "I've received your message and will get back to you as soon as possible."
   });
 
   return Promise.all([first, second]).then({
