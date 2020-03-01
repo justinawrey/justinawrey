@@ -8,11 +8,12 @@ exports.handler = async event => {
   }
 
   console.warn(event);
+  console.warn(event.body);
 
   // sgMail
   //   .send({
   //     to: "awreyjustin@gmail.com",
-  //     from: "no.reply@justinawrey.com",
+  //     from: "noreply@justinawrey.com",
   //     subject,
   //     text
   //   })
