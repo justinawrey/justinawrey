@@ -7,26 +7,40 @@ exports.handler = async event => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  console.warn(JSON.parse(event.body));
   const { name, email, subject, message } = JSON.parse(event.body);
-  console.warn("name", name);
-  console.warn("email", email);
-  console.warn("subject", subject);
-  console.warn("message", message);
 
-  // sgMail
-  //   .send({
-  //     to: "awreyjustin@gmail.com",
-  //     from: "noreply@justinawrey.com",
-  //     subject,
-  //     text
-  //   })
-  //   .then(() => ({
-  //     statusCode: 200,
-  //     body: "success"
-  //   }))
-  //   .catch(() => ({
-  //     statusCode: 500,
-  //     body: "failure"
-  //   }));
+  // goes to me
+  sgMail
+    .send({
+      to: "awreyjustin@gmail.com",
+      from: "noreply@justinawrey.com",
+      subject: `[${name} | ${email}] ${subject}`,
+      text: message
+    })
+    .then(() => ({
+      statusCode: 200,
+      body: "success"
+    }))
+    .catch(() => ({
+      statusCode: 500,
+      body: "failure"
+    }));
+
+  // goes to sender
+  sgMail
+    .send({
+      to: email,
+      from: "noreply@justinawrey.com",
+      subject: "Thanks for the inquiry!",
+      text:
+        "I've received your message and will get back to you as soon as possible.  Please do not respond to this email."
+    })
+    .then(() => ({
+      statusCode: 200,
+      body: "success"
+    }))
+    .catch(() => ({
+      statusCode: 500,
+      body: "failure"
+    }));
 };
