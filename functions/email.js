@@ -8,19 +8,17 @@ exports.handler = async event => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
+  // log some shit to Netlify console
   const { name, email, subject, message } = JSON.parse(event.body);
-
-  console.log("NEW MESSAGE");
-  console.log("name", name);
-  console.log("email", email);
-  console.log("subject", subject);
+  console.log(`Email from ${email}`);
+  console.log(`[${name}] ${subject}`);
   console.log("message", message);
 
   // goes to me
   const first = sgMail.send({
     to: "awreyjustin@gmail.com",
-    from: "noreply@justinawrey.com",
-    subject: `[${name} | ${email}] ${subject}`,
+    from: email,
+    subject: `[${name}] ${subject}`,
     text: message
   });
 
