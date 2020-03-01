@@ -7,8 +7,12 @@ exports.handler = async event => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  console.warn(event);
-  console.warn(event.body);
+  console.warn(JSON.stringify(event.body));
+  const { name, email, subject, message } = event.body;
+  console.warn("name", name);
+  console.warn("email", email);
+  console.warn("subject", subject);
+  console.warn("message", message);
 
   // sgMail
   //   .send({
