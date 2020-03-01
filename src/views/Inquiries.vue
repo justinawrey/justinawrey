@@ -108,6 +108,19 @@ export default {
         return;
       }
 
+      fetch("http://justinawrey.com/.netlify/functions/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: {
+          name: this.name,
+          email: this.email,
+          subject: this.subject,
+          message: this.message
+        }
+      });
+
       router.push({ name: "thanks" });
     }
   }
