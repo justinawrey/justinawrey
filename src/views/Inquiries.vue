@@ -108,7 +108,7 @@ export default {
         return;
       }
 
-      fetch(`${process.env.URL}/.netlify/functions/email`, {
+      fetch(`/.netlify/functions/email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
