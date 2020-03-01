@@ -12,7 +12,7 @@ exports.handler = async event => {
   const { name, email, subject, message } = JSON.parse(event.body);
   console.log(`Email from ${email}`);
   console.log(`[${name}] ${subject}`);
-  console.log("message", message);
+  console.log(message);
 
   // goes to me
   const first = sgMail.send({
