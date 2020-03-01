@@ -113,12 +113,12 @@ export default {
         headers: {
           "Content-Type": "application/json"
         },
-        body: {
+        body: JSON.stringify({
           name: this.name,
           email: this.email,
           subject: this.subject,
           message: this.message
-        }
+        })
       });
 
       router.push({ name: "thanks" });
