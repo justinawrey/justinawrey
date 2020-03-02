@@ -2,6 +2,7 @@
 
 https://www.justinawrey.com
 
-#### todo
-* save contact form data in session storage
-* send email contents back to sender in nice html
+#### Todo
+* ~~Save contact form data in session storage~~
+* Send email contents back to sender in nice html
+* Make social links actually link to somewhere
