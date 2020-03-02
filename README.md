@@ -7,3 +7,5 @@ https://www.justinawrey.com
 * Send email contents back to sender in nice html
 * Make social links actually link to somewhere
 * Make site mobile friendly
+* Change tab title to current route name
+* Get a favicon
