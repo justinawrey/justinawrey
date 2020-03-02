@@ -10,12 +10,18 @@
       </span>
     </span>
     <span class="form-split">
-      <input class="form form-right" placeholder="Name" v-model="name" />
+      <input
+        class="form form-right"
+        placeholder="Name"
+        v-model="name"
+        @input="saveToLocalStorage('name', name)"
+      />
       <input
         class="form form-left"
         placeholder="Email"
         v-model="email"
         @blur="validateEmail"
+        @input="saveToLocalStorage('email', email)"
       />
       <transition name="fade-fast" mode="out-in">
         <font-awesome-icon
@@ -32,12 +38,18 @@
         />
       </transition>
     </span>
-    <input class="form" placeholder="Subject" v-model="subject" />
+    <input
+      class="form"
+      placeholder="Subject"
+      v-model="subject"
+      @input="saveToLocalStorage('subject', subject)"
+    />
     <textarea
       class="form form-message"
       rows="10"
       placeholder="What's up?"
       v-model="message"
+      @input="saveToLocalStorage('message', message)"
     />
     <span class="button-container">
       <div class="submit" @click="submit">Submit</div>
@@ -65,10 +77,10 @@ export default {
 
   data() {
     return {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
+      name: localStorage.getItem("name") || "",
+      email: localStorage.getItem("email") || "",
+      subject: localStorage.getItem("subject") || "",
+      message: localStorage.getItem("message") || "",
       emailValid: null,
       showingWarning: null
     };
@@ -102,6 +114,17 @@ export default {
       this.emailValid = emailRegex.test(this.email);
     },
 
+    saveToLocalStorage(type, data) {
+      localStorage.setItem(type, data);
+    },
+
+    clearLocalStorage() {
+      localStorage.removeItem("name");
+      localStorage.removeItem("subject");
+      localStorage.removeItem("message");
+      localStorage.removeItem("email");
+    },
+
     submit() {
       this.showingWarning = !this.submittable;
       if (this.showingWarning) {
@@ -121,6 +144,7 @@ export default {
         })
       });
 
+      this.clearLocalStorage();
       router.push({ name: "thanks" });
     }
   }
