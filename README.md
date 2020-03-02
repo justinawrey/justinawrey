@@ -6,3 +6,4 @@ https://www.justinawrey.com
 * ~~Save contact form data in session storage~~
 * Send email contents back to sender in nice html
 * Make social links actually link to somewhere
+* Make site mobile friendly
