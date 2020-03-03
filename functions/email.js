@@ -19,7 +19,7 @@ exports.handler = async event => {
     .send({
       to: "awreyjustin@gmail.com",
       from: "donotreply@justinawrey.com",
-      cc: [email, name],
+      cc: email,
       templateId: "d-e6cd8943e1bf4d509427c7a102cb1240",
       dynamic_template_data: {
         subject,
