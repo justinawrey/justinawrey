@@ -11,27 +11,27 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "Home",
     component: Home
   },
   {
     path: "/inquiries",
-    name: "inquiries",
+    name: "Inquiries",
     component: Inquiries
   },
   {
     path: "/blog",
-    name: "blog",
+    name: "Blog",
     component: Blog
   },
   {
     path: "/portfolio",
-    name: "portfolio",
+    name: "Portfolio",
     component: Portfolio
   },
   {
     path: "/thanks",
-    name: "thanks",
+    name: "Thank You",
     component: Thanks
   }
 ];
@@ -40,6 +40,11 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next();
 });
 
 export default router;

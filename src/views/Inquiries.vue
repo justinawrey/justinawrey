@@ -145,7 +145,7 @@ export default {
       });
 
       this.clearLocalStorage();
-      router.push({ name: "thanks" });
+      router.push({ name: "Thank You" });
     }
   }
 };
@@ -208,7 +208,7 @@ export default {
 
 .validate {
   position: absolute;
-  top: 0.95rem;
+  top: 0.9rem;
   right: 1rem;
   padding-left: 0.5rem;
   background: white;
