@@ -66,7 +66,7 @@
 import router from "../router";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+const emailRegex = /^[\w.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
 export default {
   name: "Inquiries",
