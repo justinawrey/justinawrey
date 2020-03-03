@@ -15,24 +15,28 @@ exports.handler = async event => {
   console.log(message);
 
   // goes to me
-  const first = sgMail.send({
-    to: "awreyjustin@gmail.com",
-    from: email,
-    subject: `[${name}] ${subject}`,
-    text: message
-  });
-
-  // goes to sender
-  const second = sgMail.send({
-    to: email,
-    from: "donotreply@justinawrey.com",
-    subject: "Thank you",
-    text:
-      "I've received your message and will get back to you as soon as possible."
-  });
-
-  return Promise.all([first, second]).then({
-    statusCode: 200,
-    body: "success"
-  });
+  return sgMail
+    .send({
+      to: "awreyjustin@gmail.com",
+      from: "donotreply@justinawrey.com",
+      cc: email,
+      templateId: "d-e6cd8943e1bf4d509427c7a102cb1240",
+      dynamic_template_data: {
+        subject,
+        message
+      }
+    })
+    .then(
+      () => ({
+        statusCode: 200,
+        body: "success"
+      }),
+      reason => {
+        console.log(reason);
+        return {
+          statusCode: 500,
+          body: "something went wrong"
+        };
+      }
+    );
 };
