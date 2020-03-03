@@ -6,9 +6,9 @@ https://www.justinawrey.com
 * ~~Save contact form data in session storage~~
 * ~~Send email contents back to sender in nice html~~
 * ~~Make social links actually link to somewhere~~
+* ~~Change tab title to current route name~~
+* ~~Get a favicon~~
 * Make site mobile friendly
 * Put name in email somewhere
 * Make urls deeplinks
 * Valid email on page load
-* ~~Change tab title to current route name~~
-* ~~Get a favicon~~
