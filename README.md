@@ -8,7 +8,8 @@ https://www.justinawrey.com
 * ~~Make social links actually link to somewhere~~
 * ~~Change tab title to current route name~~
 * ~~Get a favicon~~
+* ~~Validate email on page load~~
+* Set up routing everything to /
 * Make site mobile friendly
 * Put name in email somewhere
 * Make urls deeplinks
-* Valid email on page load

@@ -147,6 +147,10 @@ export default {
       this.clearLocalStorage();
       router.push({ name: "Thank You" });
     }
+  },
+
+  created() {
+    this.validateEmail();
   }
 };
 </script>
