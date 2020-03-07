@@ -9,7 +9,7 @@ https://www.justinawrey.com
 * ~~Change tab title to current route name~~
 * ~~Get a favicon~~
 * ~~Validate email on page load~~
-* Set up routing everything to /
+* ~~Set up routing everything to /~~
 * Make site mobile friendly
 * Put name in email somewhere
 * Make urls deeplinks
