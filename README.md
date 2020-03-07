@@ -11,6 +11,7 @@ https://www.justinawrey.com
 * ~~Validate email on page load~~
 * ~~Set up routing everything to /~~
 * ~~Make urls deeplinks~~
+* ~~Make unknown client side url go to /~~
 * Set up pushstate so deeplinking has browser history
 * Make site mobile friendly
 * Put name in email somewhere

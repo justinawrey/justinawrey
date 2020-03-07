@@ -33,6 +33,10 @@ const routes = [
     path: "/thanks",
     name: "Thank You",
     component: Thanks
+  },
+  {
+    path: "*",
+    redirect: "/"
   }
 ];
 
