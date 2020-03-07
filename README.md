@@ -5,7 +5,7 @@ https://www.justinawrey.com
 ### Develop
 `npm run serve`
 
-#### Todo
+### Todo
 * ~~Save contact form data in session storage~~
 * ~~Send email contents back to sender in nice html~~
 * ~~Make social links actually link to somewhere~~
