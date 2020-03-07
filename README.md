@@ -2,6 +2,9 @@
 
 https://www.justinawrey.com
 
+### Develop
+`npm run serve`
+
 #### Todo
 * ~~Save contact form data in session storage~~
 * ~~Send email contents back to sender in nice html~~
