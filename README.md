@@ -10,6 +10,7 @@ https://www.justinawrey.com
 * ~~Get a favicon~~
 * ~~Validate email on page load~~
 * ~~Set up routing everything to /~~
+* ~~Make urls deeplinks~~
+* Set up pushstate so deeplinking has browser history
 * Make site mobile friendly
 * Put name in email somewhere
-* Make urls deeplinks
