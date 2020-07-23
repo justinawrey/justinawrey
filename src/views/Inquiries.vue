@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <span class="header">
-      <span>
-        Inquiries
-      </span>
+      <span>Inquiries</span>
       <span class="tip">
-        I frequently receive a high volume of requests.<br />
-        Please leave a message, and I'll get back to you as soon as possible.
+        I frequently receive a high volume of requests.
+        <br />Please leave a message, and I'll get back to you as soon as
+        possible.
       </span>
     </span>
     <span class="form-split">
@@ -23,20 +22,6 @@
         @blur="validateEmail"
         @input="saveToLocalStorage('email', email)"
       />
-      <transition name="fade-fast" mode="out-in">
-        <font-awesome-icon
-          v-if="emailValid === true"
-          class="validate check"
-          :icon="['fas', 'check']"
-          key="check"
-        />
-        <font-awesome-icon
-          v-else-if="emailValid === false"
-          class="validate cross"
-          :icon="['fas', 'times']"
-          key="cross"
-        />
-      </transition>
     </span>
     <input
       class="form"
@@ -53,8 +38,21 @@
     />
     <span class="button-container">
       <div class="submit" @click="submit">Submit</div>
-      <transition name="fade-fast">
-        <div v-if="showingWarning" class="warning">
+      <transition name="fade-fast" mode="out-in">
+        <div
+          v-if="emailValid === false"
+          key="emailWarning"
+          :class="['warning', { jiggle: showJiggle }]"
+          @animationend="showJiggle = false"
+        >
+          Please enter a valid email.
+        </div>
+        <div
+          v-else-if="showingWarning"
+          key="notFullWarning"
+          :class="['warning', { jiggle: showJiggle }]"
+          @animationend="showJiggle = false"
+        >
           Please complete all fields.
         </div>
       </transition>
@@ -64,16 +62,11 @@
 
 <script>
 import router from "../router";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const emailRegex = /^[\w.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
 export default {
   name: "Inquiries",
-
-  components: {
-    FontAwesomeIcon
-  },
 
   data() {
     return {
@@ -82,7 +75,8 @@ export default {
       subject: localStorage.getItem("subject") || "",
       message: localStorage.getItem("message") || "",
       emailValid: null,
-      showingWarning: null
+      showingWarning: null,
+      showJiggle: false
     };
   },
 
@@ -128,6 +122,7 @@ export default {
     submit() {
       this.showingWarning = !this.submittable;
       if (this.showingWarning) {
+        this.showJiggle = true;
         return;
       }
 
@@ -263,5 +258,33 @@ export default {
 .warning {
   font-size: 0.8rem;
   margin-bottom: 1rem;
+}
+
+.jiggle {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 </style>

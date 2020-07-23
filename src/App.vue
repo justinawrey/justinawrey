@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import StickyFooter from "@/components/footer";
+import StickyFooter from "./components/footer";
 
 export default {
   name: "App",
