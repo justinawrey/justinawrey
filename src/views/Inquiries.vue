@@ -37,7 +37,7 @@
       @input="saveToLocalStorage('message', message)"
     />
     <span class="button-container">
-      <div class="submit" @click="submit">Submit</div>
+      <button class="submit form" @click="submit">Submit</button>
       <transition name="fade-fast" mode="out-in">
         <div
           v-if="emailValid === false"
@@ -178,10 +178,12 @@ export default {
   font-size: 15px;
   border: 1px solid;
   border-color: rgb(210, 210, 210);
+  transition: border-color 0.15s;
 }
 
 .form:focus {
   outline: 0;
+  border-color: rgb(160, 160, 160);
 }
 
 .form-right {
@@ -241,11 +243,13 @@ export default {
   border: 1px solid;
   border-color: rgb(210, 210, 210);
   font-size: 0.9rem;
+  transition: border-color 0.15s;
+  background-color: transparent;
 }
 
 .submit:hover {
   cursor: pointer;
-  font-weight: bold;
+  border-color: rgb(160, 160, 160);
 }
 
 .button-container {
