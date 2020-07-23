@@ -2,16 +2,6 @@
   <span class="footer">
     <font-awesome-icon
       class="brand"
-      :icon="['fab', 'facebook-f']"
-      @click="openUrl('https://www.facebook.com/justin.awrey')"
-    />
-    <font-awesome-icon
-      class="brand"
-      :icon="['fab', 'instagram']"
-      @click="openUrl('https://www.instagram.com/justinawrey/')"
-    />
-    <font-awesome-icon
-      class="brand"
       :icon="['fab', 'linkedin-in']"
       @click="openUrl('https://www.linkedin.com/in/justin-awrey-2b91a7119/')"
     />
@@ -25,7 +15,6 @@
       :icon="['fab', 'github-alt']"
       @click="openUrl('https://www.github.com/justinawrey')"
     />
-    <span class="divider">&#x7c;</span>
     <router-link class="item" to="inquiries" tag="span">Inquiries</router-link>
   </span>
 </template>
@@ -57,13 +46,14 @@ export default {
   align-items: center;
 }
 
-.divider {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+.item {
+  margin-left: 0.8rem;
+  text-decoration: underline;
+  transition: opacity 0.15s;
 }
 
 .item:hover {
-  font-weight: bold;
+  opacity: 0.5;
   cursor: pointer;
 }
 
@@ -71,10 +61,11 @@ export default {
   cursor: pointer;
   font-size: 1.5rem;
   margin-left: 0.7rem;
+  transition: opacity 0.15s;
 }
 
 .brand:hover {
   font-weight: lighter;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 </style>
