@@ -1,6 +1,9 @@
 <template>
   <transition appear name="fade">
     <div id="app">
+      <transition name="fade-fast">
+        <sticky-nav :class="{ delay: !atHome }" v-show="!atHome" />
+      </transition>
       <transition name="fade-fast" mode="out-in">
         <router-view />
       </transition>
@@ -11,12 +14,20 @@
 
 <script>
 import StickyFooter from "./components/footer";
+import StickyNav from "./components/nav";
 
 export default {
   name: "App",
 
   components: {
-    StickyFooter
+    StickyFooter,
+    StickyNav
+  },
+
+  computed: {
+    atHome() {
+      return this.$route.path === "/";
+    }
   }
 };
 </script>
@@ -52,5 +63,9 @@ body,
 .fade-fast-enter-active,
 .fade-fast-leave-active {
   transition: opacity 200ms ease-out;
+}
+
+.delay {
+  transition-delay: 200ms;
 }
 </style>

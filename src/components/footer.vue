@@ -15,7 +15,6 @@
       :icon="['fab', 'github-alt']"
       @click="openUrl('https://www.github.com/justinawrey')"
     />
-    <router-link class="item" to="inquiries" tag="span">Inquiries</router-link>
   </span>
 </template>
 
@@ -44,17 +43,6 @@ export default {
   right: 1rem;
   display: flex;
   align-items: center;
-}
-
-.item {
-  margin-left: 0.8rem;
-  text-decoration: underline;
-  transition: opacity 0.15s;
-}
-
-.item:hover {
-  opacity: 0.5;
-  cursor: pointer;
 }
 
 .brand {
