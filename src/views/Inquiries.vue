@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <span class="header">
-      <span>Inquiries</span>
+      <span>Have an idea? 💡</span>
       <span class="tip">
         I frequently receive a high volume of requests.
         <br />Please leave a message, and I'll get back to you as soon as

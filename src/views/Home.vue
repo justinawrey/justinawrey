@@ -20,20 +20,29 @@ export default {
 
 <style scoped>
 .header {
-  font-size: 3rem;
-  margin-bottom: 0.2rem;
+  font-size: 4rem;
 }
 
 .annotation {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .option {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: all 0.15s;
   margin-right: auto;
+}
+
+.option:hover {
+  position: relative;
+}
+
+.option:hover::before {
+  content: "• ";
+  position: absolute;
+  left: -13px;
 }
 
 .option:hover {
