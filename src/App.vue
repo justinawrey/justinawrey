@@ -38,8 +38,8 @@ export default {
 html,
 body,
 #app {
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   margin: 0;
   font-family: "Raleway";
 }

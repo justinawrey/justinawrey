@@ -1,10 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home";
-import Inquiries from "../views/Inquiries";
-import Blog from "../views/Blog";
-import Portfolio from "../views/Portfolio";
-import Thanks from "../views/Thanks";
 
 Vue.use(VueRouter);
 
@@ -12,38 +8,18 @@ const routes = [
   {
     path: "/",
     name: "Justin Awrey",
-    component: Home
-  },
-  {
-    path: "/inquiries",
-    name: "Inquiries",
-    component: Inquiries
-  },
-  {
-    path: "/blog",
-    name: "Blog",
-    component: Blog
-  },
-  {
-    path: "/portfolio",
-    name: "Portfolio",
-    component: Portfolio
-  },
-  {
-    path: "/thanks",
-    name: "Thank You",
-    component: Thanks
+    component: Home,
   },
   {
     path: "*",
-    redirect: "/"
-  }
+    redirect: "/",
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 router.beforeEach((to, from, next) => {

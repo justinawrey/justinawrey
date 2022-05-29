@@ -1,39 +1,39 @@
 <template>
-  <div class="header">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tempore
-    dolores consectetur molestiae optio in voluptatem natus facere dolor omnis,
-    voluptate magnam, enim vitae harum sunt veniam consequatur accusantium
-    totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quam
-    id aliquam iusto quis doloribus blanditiis quae accusamus fugit. Autem,
-    praesentium fuga? Veniam omnis saepe cupiditate, ipsa odio corrupti
-    minus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tempore
-    dolores consectetur molestiae optio in voluptatem natus facere dolor omnis,
-    voluptate magnam, enim vitae harum sunt veniam consequatur accusantium
-    totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quam
-    id aliquam iusto quis doloribus blanditiis quae accusamus fugit. Autem,
-    praesentium fuga? Veniam omnis saepe cupiditate, ipsa odio corrupti
-    minus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tempore
-    dolores consectetur molestiae optio in voluptatem natus facere dolor omnis,
-    voluptate magnam, enim vitae harum sunt veniam consequatur accusantium
-    totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quam
-    id aliquam iusto quis doloribus blanditiis quae accusamus fugit. Autem,
-    praesentium fuga? Veniam omnis saepe cupiditate, ipsa odio corrupti
-    minus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tempore
-    dolores consectetur molestiae optio in voluptatem natus facere dolor omnis,
-    voluptate magnam, enim vitae harum sunt veniam consequatur accusantium
-    totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quam
-    id aliquam iusto quis doloribus blanditiis quae accusamus fugit. Autem,
-    praesentium fuga? Veniam omnis saepe cupiditate, ipsa odio corrupti minus.
+  <div class="container">
+    <div class="item" />
+    <div class="item" />
+    <div class="item" />
   </div>
 </template>
 
 <style scoped>
-.header {
-  font-size: 1rem;
-  width: 60vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 500px;
+.container {
+  display: grid;
+  grid-template-columns: 25vw 25vw 25vw;
+  grid-template-rows: 50vh;
+}
+
+.item {
+  border: 1px solid;
+  border-color: rgb(210, 210, 210);
+  transition: border-color 0.15s;
+}
+
+.item:first-child {
+  margin-right: 10px;
+}
+
+.item:nth-child(2) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.item:last-child {
+  margin-left: 10px;
+}
+
+.item:hover {
+  border-color: rgb(160, 160, 160);
+  cursor: pointer;
 }
 </style>

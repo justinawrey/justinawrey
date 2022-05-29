@@ -2,19 +2,12 @@
   <div class="home">
     <span class="header">Justin Awrey</span>
     <span class="annotation">One stop web designer + developer.</span>
-    <router-link to="blog" class="option" tag="span">Blog</router-link>
-    <router-link to="portfolio" class="option" tag="span"
-      >Portfolio</router-link
-    >
-    <router-link to="inquiries" class="option" tag="span"
-      >Inquiries</router-link
-    >
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home"
+  name: "Home",
 };
 </script>
 
