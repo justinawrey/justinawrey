@@ -10,6 +10,12 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "astro": "^1.0.5"
+    "astro": "^1.0.5",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.0"
+  },
+  "dependencies": {
+    "@fontsource/raleway": "^4.5.10",
+    "@fortawesome/fontawesome-free": "^6.1.2"
   }
 }
