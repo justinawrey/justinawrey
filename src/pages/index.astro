@@ -1,3 +1,75 @@
-<p>
-hello Justin
-</p>
+---
+import "@fontsource/raleway/300.css";
+import "@fortawesome/fontawesome-free/css/fontawesome.css";
+import "@fortawesome/fontawesome-free/css/brands.css";
+---
+
+<div>
+  <h1 class="name">Justin Awrey</h1>
+  <p class="description">One stop web designer + developer.</p>
+</div>
+
+<div class="icons">
+  <a href="https://github.com/justinawrey">
+    <i class="icon fa-brands fa-github-alt"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/justin-awrey-2b91a7119">
+    <i class="icon fa-brands fa-linkedin-in"></i>
+  </a>
+</div>
+
+<style is:global>
+  :root {
+    font-family: "Raleway";
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+    flex-direction: column;
+  }
+</style>
+
+<style>
+  .name {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .description {
+    font-size: 2.2rem;
+    margin: 0;
+  }
+
+  .icons {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    transition: opacity 0.15s;
+    cursor: pointer;
+  }
+
+  .icon:hover {
+    opacity: 0.5;
+  }
+
+  .fa-linkedin-in {
+    margin-left: 0.3rem;
+  }
+
+  a {
+    all: unset;
+  }
+</style>
