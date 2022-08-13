@@ -1,7 +1,7 @@
 ---
 import "@fontsource/raleway/300.css";
-import "@fortawesome/fontawesome-free/css/fontawesome.css";
-import "@fortawesome/fontawesome-free/css/brands.css";
+import github from "@fortawesome/fontawesome-free/svgs/brands/github-alt.svg";
+import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg";
 ---
 
 <div>
@@ -11,10 +11,10 @@ import "@fortawesome/fontawesome-free/css/brands.css";
 
 <div class="icons">
   <a href="https://github.com/justinawrey">
-    <i class="icon fa-brands fa-github-alt"></i>
+    <img class="icon" src={github} alt="github link" />
   </a>
   <a href="https://www.linkedin.com/in/justin-awrey-2b91a7119">
-    <i class="icon fa-brands fa-linkedin-in"></i>
+    <img class="icon linkedin" src={linkedin} alt="linkedin link" />
   </a>
 </div>
 
@@ -56,7 +56,7 @@ import "@fortawesome/fontawesome-free/css/brands.css";
   }
 
   .icon {
-    font-size: 1.5rem;
+    height: 1.5rem;
     transition: opacity 0.15s;
     cursor: pointer;
   }
@@ -65,7 +65,7 @@ import "@fortawesome/fontawesome-free/css/brands.css";
     opacity: 0.5;
   }
 
-  .fa-linkedin-in {
+  .linkedin {
     margin-left: 0.3rem;
   }
 
