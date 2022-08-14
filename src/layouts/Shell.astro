@@ -1,0 +1,25 @@
+---
+import "@fontsource/raleway/300.css";
+import github from "@fortawesome/fontawesome-free/svgs/brands/github-alt.svg";
+import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg";
+import "../global.css";
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Justin Awrey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <slot />
+    <div class="icons">
+      <a href="https://github.com/justinawrey">
+        <img class="icon" src={github} alt="github link" />
+      </a>
+      <a href="https://www.linkedin.com/in/justin-awrey-2b91a7119">
+        <img class="icon linkedin" src={linkedin} alt="linkedin link" />
+      </a>
+    </div>
+  </body>
+</html>
