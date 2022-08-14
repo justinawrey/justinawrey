@@ -1,41 +1,13 @@
 ---
-import "@fontsource/raleway/300.css";
-import github from "@fortawesome/fontawesome-free/svgs/brands/github-alt.svg";
-import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg";
+import Shell from "../layouts/Shell.astro";
 ---
 
-<div>
-  <h1 class="name">Justin Awrey</h1>
-  <p class="description">One stop web designer + developer.</p>
-</div>
-
-<div class="icons">
-  <a href="https://github.com/justinawrey">
-    <img class="icon" src={github} alt="github link" />
-  </a>
-  <a href="https://www.linkedin.com/in/justin-awrey-2b91a7119">
-    <img class="icon linkedin" src={linkedin} alt="linkedin link" />
-  </a>
-</div>
-
-<style is:global>
-  :root {
-    font-family: "Raleway";
-  }
-
-  html {
-    height: 100%;
-  }
-
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: 100%;
-    flex-direction: column;
-  }
-</style>
+<Shell>
+  <div>
+    <h1 class="name">Justin Awrey</h1>
+    <p class="description">One stop web designer + developer.</p>
+  </div>
+</Shell>
 
 <style>
   .name {
@@ -47,29 +19,5 @@ import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg"
   .description {
     font-size: 2.2rem;
     margin: 0;
-  }
-
-  .icons {
-    position: absolute;
-    bottom: 0.5rem;
-    right: 1rem;
-  }
-
-  .icon {
-    height: 1.5rem;
-    transition: opacity 0.15s;
-    cursor: pointer;
-  }
-
-  .icon:hover {
-    opacity: 0.5;
-  }
-
-  .linkedin {
-    margin-left: 0.3rem;
-  }
-
-  a {
-    all: unset;
   }
 </style>
