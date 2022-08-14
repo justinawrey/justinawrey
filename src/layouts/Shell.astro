@@ -1,8 +1,6 @@
 ---
-import "@fontsource/raleway/300.css";
 import github from "@fortawesome/fontawesome-free/svgs/brands/github-alt.svg";
 import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg";
-import "../global.css";
 ---
 
 <html>
@@ -10,6 +8,50 @@ import "../global.css";
     <meta charset="utf-8" />
     <title>Justin Awrey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" as="image" href={github} />
+    <link rel="preload" as="image" href={linkedin} />
+    <style>
+      :root {
+        font-family: "Raleway";
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icons {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+      }
+
+      .icon {
+        height: 1.5rem;
+        transition: opacity 0.15s;
+        cursor: pointer;
+      }
+
+      .icon:hover {
+        opacity: 0.5;
+      }
+
+      .linkedin {
+        margin-left: 0.3rem;
+      }
+
+      a {
+        all: unset;
+      }
+    </style>
   </head>
   <body>
     <slot />
