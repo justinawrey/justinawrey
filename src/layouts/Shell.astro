@@ -15,7 +15,32 @@ import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg"
     <link rel="preload" as="font" href="/fonts/raleway.woff2" type="font/woff2"
     />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script>
+      const circleSize = 20;
+      const lifetime = 1.2;
 
+      function drawCircle(x: number, y: number): void {
+        const circle = document.createElement('div')
+        circle.style.position = 'absolute'
+        circle.style.left = `${x}px`
+        circle.style.top = `${y}px`
+        circle.style.borderRadius = '50%'
+        circle.style.width = `${circleSize}px`
+        circle.style.height = `${circleSize}px`
+        circle.style.backgroundColor = 'grey'
+        circle.style.opacity = '0.2'
+        circle.style.animation = `ripple ${lifetime}s ease-out`
+        document.body.appendChild(circle)
+
+        setTimeout(() => {
+          document.body.removeChild(circle)
+        }, lifetime * 1000)
+      }
+
+      window.addEventListener('mouseup', (e) => {
+        drawCircle(e.pageX - (circleSize / 2), e.pageY - (circleSize / 2))
+      })
+    </script>
     <style>
       @font-face {
         font-family: Raleway;
@@ -61,6 +86,17 @@ import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg"
 
       a {
         all: unset;
+      }
+
+      @keyframes ripple {
+        from {
+          opacity: 0.3;
+          transform: scale(0);
+        }
+        to {
+          opacity: 0;
+          transform: scale(2);
+        }
       }
     </style>
   </head>
