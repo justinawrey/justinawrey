@@ -3,21 +3,39 @@ import Shell from "../layouts/Shell.astro";
 ---
 
 <Shell>
-  <div>
-    <h1 class="name">Justin Awrey</h1>
-    <p class="description">One stop web designer + developer.</p>
+  <div class="container">
+    <h1 class="name">Hello!</h1>
+    <p class="description">My name is Justin, and I'm a software engineer specializing in all things related to the web.  You can find my open source work on <a href="https://github.com/justinawrey">Github</a>, and subject yourself to my thoughts over at my <a href="https://justinawrey.com/blog">blog</a>.</p>
   </div>
 </Shell>
 
 <style>
+  .container {
+    width: 40vw;
+  }
+
   .name {
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
-    font-weight: normal;
+    font-weight: bold;
   }
 
   .description {
-    font-size: 2.2rem;
+    font-size: 1.3rem;
     margin: 0;
   }
+
+  @media screen and (max-width: 900px) {
+    .container {
+      width: 60vw;
+    }
+
+    .name {
+      font-size: 2rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+  }  
 </style>
