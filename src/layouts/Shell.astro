@@ -40,6 +40,12 @@ import linkedin from "@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg"
       window.addEventListener('mouseup', (e) => {
         drawCircle(e.pageX - (circleSize / 2), e.pageY - (circleSize / 2))
       })
+
+      window.addEventListener('touchend', (e) => {
+        for (const touch of e.touches) {
+          drawCircle(touch.pageX - (circleSize / 2), touch.pageY - (circleSize / 2))
+        }
+      })
     </script>
     <style>
       @font-face {
