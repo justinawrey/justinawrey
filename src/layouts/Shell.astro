@@ -46,7 +46,8 @@ import Svg from "../components/Svg.astro";
     </script>
     <script>
       // Do dark mode stuff.  This appends a button toggle to the top right of the page.
-      // It may be better to ssr it in as an island.  But this is okay for now.
+      // It may be better to ssr it in as an island.  But this is okay for now because I don't
+      // want to fuck with it.
       const hasPreferenceSaved = !!localStorage.getItem("theme");
 
       let isDark: boolean;
