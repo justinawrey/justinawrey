@@ -45,9 +45,6 @@ import Svg from "../components/Svg.astro";
       });
     </script>
     <script>
-      // Do dark mode stuff.  This appends a button toggle to the top right of the page.
-      // It may be better to ssr it in as an island.  But this is okay for now because I don't
-      // want to fuck with it.
       const hasPreferenceSaved = !!localStorage.getItem("theme");
 
       let isDark: boolean;
@@ -63,16 +60,7 @@ import Svg from "../components/Svg.astro";
         document.documentElement.classList.remove("dark");
       }
 
-      const button = document.createElement("button");
-      button.classList.add(
-        "top-1",
-        "right-1",
-        "absolute",
-        "text-xs",
-        "underline",
-        "hover:text-slate-600",
-        "hover:dark:text-slate-300"
-      );
+      const button = document.getElementById("theme-toggle")!;
 
       function setText() {
         button.innerText = isDark
@@ -93,8 +81,6 @@ import Svg from "../components/Svg.astro";
         setText();
         setTheme();
       });
-
-      document.body.appendChild(button);
     </script>
     <style>
       @keyframes ripple {
@@ -131,5 +117,9 @@ import Svg from "../components/Svg.astro";
         </Svg>
       </a>
     </div>
+    <button
+      id="theme-toggle"
+      class="top-1 right-1 absolute text-xs underline hover:text-slate-600 hover:dark:text-slate-300"
+    ></button>
   </body>
 </html>
