@@ -1,22 +1,16 @@
 ---
-layout: ../../layouts/Shell.astro
+layout: ../../layouts/BlogPost.astro
 ---
 
-# Hi there!
+# The micro-blog post
 
-This is your first markdown page. It probably isn't styled much, although
-Markdown does support **bold** and _italics._
+This is a test markdown page. I'm trying to get this to look nice, including supporting
+**bold** and _italics._
 
-To learn more about adding a layout to your page, read the next section on **Markdown Layouts.**
+## The next section
 
-## A smaller heading
-
-This is within my _smaller_ heading.
+This is within my _smaller_ heading. Syntax highlighting works too!
 
 ```typescript
 const test: string = "Hello world!";
 ```
-
-### Yet smaller
-
-**SO** small.
