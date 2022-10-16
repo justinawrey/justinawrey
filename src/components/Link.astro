@@ -1,14 +1,13 @@
 ---
 interface Props {
   href: string;
-  extraClass?: string;
 }
 
-const { href, extraClass = "" } = Astro.props;
+const { href } = Astro.props;
 ---
 
 <a
-  class={`underline hover:text-slate-600 hover:dark:text-slate-300 inline-block ${extraClass}`}
+  class="underline hover:text-slate-600 hover:dark:text-slate-300 inline-block"
   href={href}
 >
   <slot />

@@ -1,15 +1,8 @@
 ---
 import Svg from "../components/Svg.astro";
-
-interface Props {
-  bodyClass?: string;
-  slotClass?: string;
-}
-
-const { bodyClass = "", slotClass = "" } = Astro.props;
 ---
 
-<html>
+<html class="h-full w-full">
   <head>
     <meta charset="utf-8" />
     <title>Justin Awrey</title>
@@ -110,12 +103,12 @@ const { bodyClass = "", slotClass = "" } = Astro.props;
     </style>
   </head>
   <body
-    class={`${bodyClass} font-mono flex flex-col items-center justify-center dark:bg-gray-800 dark:text-slate-400`}
+    class="font-mono h-full w-full flex flex-col items-center justify-center dark:bg-gray-800 dark:text-slate-400"
   >
-    <div class={`${slotClass} overflow-auto`}>
-      <slot />
-    </div>
-    <div class="fixed right-3 bottom-3 flex space-x-2">
+    <slot />
+
+    <!-- Fixed footer -->
+    <footer class="fixed right-3 bottom-3 flex space-x-2">
       <button
         id="theme-toggle"
         class="underline hover:text-slate-600 hover:dark:text-slate-300 -mb-2 text-xs"
@@ -137,6 +130,6 @@ const { bodyClass = "", slotClass = "" } = Astro.props;
           </path>
         </Svg>
       </a>
-    </div>
+    </footer>
   </body>
 </html>
