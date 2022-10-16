@@ -1,5 +1,24 @@
 ---
 import Svg from "../components/Svg.astro";
+import Link from "../components/Link.astro";
+
+type Props = {
+  showBreadcrumbs?: boolean;
+};
+
+const {
+  url: { pathname },
+  props: { showBreadcrumbs = true },
+} = Astro;
+
+const parts = pathname.split("/").filter((part) => part !== "");
+
+function createLink(part: string) {
+  const index = parts.indexOf(part);
+  const linkParts = parts.slice(0, index + 1);
+  const link = "/" + linkParts.join("/");
+  return link;
+}
 ---
 
 <html class="h-full w-full">
@@ -105,6 +124,27 @@ import Svg from "../components/Svg.astro";
   <body
     class="font-mono h-full w-full flex flex-col items-center justify-center dark:bg-gray-800 dark:text-slate-400"
   >
+    {
+      showBreadcrumbs && parts.length > 0 ? (
+        <header class="fixed top-3 left-4">
+          <nav>
+            <ul class="flex">
+              <li>
+                <Link href="/">home</Link>
+              </li>
+              {parts.map((part) => (
+                <>
+                  <span class="mx-1">/</span>
+                  <li>
+                    <Link href={createLink(part)}>{part}</Link>
+                  </li>
+                </>
+              ))}
+            </ul>
+          </nav>
+        </header>
+      ) : null
+    }
     <slot />
 
     <!-- Fixed footer -->
