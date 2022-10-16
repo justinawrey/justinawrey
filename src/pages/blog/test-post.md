@@ -11,11 +11,12 @@ To learn more about adding a layout to your page, read the next section on **Mar
 
 ## A smaller heading
 
-This is within my *smaller* heading.
+This is within my _smaller_ heading.
 
 ```typescript
-const test: string = 'Hello world!';
+const test: string = "Hello world!";
 ```
 
 ### Yet smaller
+
 **SO** small.
