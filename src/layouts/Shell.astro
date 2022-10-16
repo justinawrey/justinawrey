@@ -2,10 +2,11 @@
 import Svg from "../components/Svg.astro";
 
 interface Props {
-  extraClass?: string;
+  bodyClass?: string;
+  slotClass?: string;
 }
 
-const { extraClass = "" } = Astro.props;
+const { bodyClass = "", slotClass = "" } = Astro.props;
 ---
 
 <html>
@@ -109,9 +110,9 @@ const { extraClass = "" } = Astro.props;
     </style>
   </head>
   <body
-    class="font-mono h-screen flex flex-col items-center justify-center dark:bg-gray-800 dark:text-slate-400"
+    class={`${bodyClass} font-mono flex flex-col items-center justify-center dark:bg-gray-800 dark:text-slate-400`}
   >
-    <div class={`${extraClass} overflow-auto`}>
+    <div class={`${slotClass} overflow-auto`}>
       <slot />
     </div>
     <div class="fixed right-3 bottom-3 flex space-x-2">

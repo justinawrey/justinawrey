@@ -3,8 +3,11 @@ import Shell from "../layouts/Shell.astro";
 import Link from "../components/Link.astro";
 ---
 
-<Shell extraClass="flex flex-col items-center justify-center w-2/5">
-  <h1 class="text-2xl mb-2">Uh-oh! (404)</h1>
+<Shell
+  bodyClass="h-screen"
+  slotClass="flex flex-col items-center justify-center w-2/5"
+>
+  <h1 class="text-2xl mb-2 dark:text-slate-300">Uh-oh! (404)</h1>
   <p class="mb-2">
     You weren't supposed to get here. You can go elsewhere on this site... but
     definitely not here. Lets pretend this never happened!
