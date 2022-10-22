@@ -4,7 +4,7 @@ title: Palatia temptare tum copia obliqua erit petiti
 time: 5
 date: August 2, 2022
 description: Lorem markdownum! Et coniugium relinquunt tangit. lorem ipsum dolor sit amet lorem. alksdjflasdjflskjdf.
-tags: [test, markdown, lorem mardownum]
+tags: [markdown, lorem markdownum]
 ---
 
 # Palatia temptare tum copia obliqua erit petiti

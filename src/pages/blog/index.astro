@@ -4,6 +4,10 @@ import ScrollPanel from "../../components/ScrollPanel.astro";
 import PostPreview from "../../components/PostPreview.astro";
 
 const posts = await Astro.glob("../blog/*.md");
+posts.sort((a, b) => {
+  // @ts-ignore
+  return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+});
 ---
 
 <Shell>
