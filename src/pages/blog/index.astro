@@ -1,5 +1,20 @@
 ---
 import Shell from "../../layouts/Shell.astro";
+import PostPreview from "../../components/PostPreview.astro";
+
+const postInfo = (await Astro.glob("../blog/*.md")).map(
+  (post) => post.frontmatter
+);
 ---
 
-<Shell>This is the blog page</Shell>
+<Shell>
+  {
+    postInfo.map(({ title, time, tags }) => (
+      <PostPreview
+        title={title}
+        time={time}
+        tags={tags}
+      />
+    ))
+  }
+</Shell>

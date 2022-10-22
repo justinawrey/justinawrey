@@ -1,5 +1,8 @@
 ---
 layout: ../../layouts/BlogPost.astro
+title: Palatia temptare tum copia obliqua erit petiti
+time: 5
+tags: [test, markdown, lorem mardownum]
 ---
 
 # Palatia temptare tum copia obliqua erit petiti
