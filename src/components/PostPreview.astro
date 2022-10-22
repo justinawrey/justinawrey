@@ -1,17 +1,32 @@
 ---
 interface Props {
   title: string;
+  description: string;
+  date: string;
   time: number;
   tags: string[];
+  url: string | undefined;
 }
 
-const { title, time, tags } = Astro.props;
+const { title, description, time, tags, date, url = "/" } = Astro.props;
 ---
 
-<div>
-  <h1>{title}</h1>
-  <p>{time}</p>
-  <ul>
-    {tags.map((tag) => <li>{tag}</li>)}
+<a
+  class="space-y-6"
+  href={url}
+>
+  <p class="font-bold text-2xl dark:text-slate-300">{title}</p>
+  <p class="">{description}</p>
+  <div class="text-sm italic flex space-x-2">
+    <p>{date}</p><p>∙</p><p>{time} minute read</p>
+  </div>
+  <ul class="flex text-xs space-x-2">
+    {
+      tags.map((tag) => (
+        <li class="border rounded-full p-2 border-slate-400 dark:border-slate-500">
+          {tag}
+        </li>
+      ))
+    }
   </ul>
-</div>
+</a>
