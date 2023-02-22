@@ -7,7 +7,7 @@ description: File system routing is a popular approach taken by modern meta-fram
 tags: [deno, deno deploy, filesystem routing]
 ---
 
-# Building a file system router, part 1
+# Building a file system router for Deno, part 1: the basics
 
 These days, one of the more popular approaches to handling routing in apps is **file system routing**. Generally speaking, a file system router takes a root directory as input, and generates routes for your application based on the directory structure of the given directory and all of its children.
 
