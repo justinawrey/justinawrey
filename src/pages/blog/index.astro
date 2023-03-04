@@ -9,8 +9,11 @@ posts.sort((a, b) => {
 });
 ---
 
-<Shell>
-  <ul class="space-y-20 my-20">
+<Shell
+  mainClasses="max-w-2xl"
+  bodyClasses="flex justify-center"
+>
+  <ul class="space-y-20 my-24">
     {
       posts.map(
         ({ frontmatter: { title, time, tags, description, date }, url }) => (
