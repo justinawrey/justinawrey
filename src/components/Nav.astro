@@ -1,0 +1,22 @@
+---
+import Link from "./Link.astro";
+
+interface LinkInfo {
+  path: string;
+  displayName: string;
+}
+
+const path = Astro.url.pathname;
+const links: LinkInfo[] = [];
+
+if (path === "/blog") {
+  links.push({ path: "/", displayName: "Home" });
+} else if (path.startsWith("/blog/")) {
+  links.push({ path: "/", displayName: "Home" });
+  links.push({ path: "/blog", displayName: "Posts" });
+}
+---
+
+<nav class="absolute left-3 top-1 flex flex-col">
+  {links.map((link) => <Link href={link.path}>{link.displayName}</Link>)}
+</nav>
