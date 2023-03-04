@@ -6,15 +6,16 @@ interface LinkInfo {
   displayName: string;
 }
 
-const path = Astro.url.pathname;
-const links: LinkInfo[] = [];
-
-if (path === "/blog") {
-  links.push({ path: "/", displayName: "home" });
-} else if (path.startsWith("/blog/")) {
-  links.push({ path: "/", displayName: "home" });
-  links.push({ path: "/blog", displayName: "posts" });
-}
+const links: LinkInfo[] = [
+  {
+    path: "/",
+    displayName: "home",
+  },
+  {
+    path: "/blog",
+    displayName: "posts",
+  },
+];
 ---
 
 <nav>

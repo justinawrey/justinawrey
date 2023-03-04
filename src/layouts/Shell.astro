@@ -7,7 +7,6 @@ interface Props {
   bodyClasses?: string;
 }
 
-const path = Astro.url.pathname;
 const { mainClasses, bodyClasses } = Astro.props;
 ---
 
@@ -125,7 +124,7 @@ const { mainClasses, bodyClasses } = Astro.props;
       class="fixed top-0 left-0 right-0 flex justify-between items-end text-xs px-3 pt-3 pb-4 dark:bg-[#1c222d] bg-white border-b-1 shadow-2xl dark:shadow-slate-800 md:text-base"
     >
       <div class="md:-mb-0.5">
-        {path !== "/" ? <Nav /> : null}
+        <Nav />
       </div>
       <div class="flex space-x-1.5 md:space-x-2 items-end">
         <button
