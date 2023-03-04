@@ -17,6 +17,17 @@ if (path === "/blog") {
 }
 ---
 
-<nav class="fixed left-3 top-1 flex flex-col">
-  {links.map((link) => <Link href={link.path}>{link.displayName}</Link>)}
+<nav>
+  <ul class="flex items-center">
+    {
+      links.map((link, index) => (
+        <>
+          {index !== 0 ? <span class="mx-1">•</span> : null}
+          <li>
+            <Link href={link.path}>{link.displayName}</Link>
+          </li>
+        </>
+      ))
+    }
+  </ul>
 </nav>

@@ -20,10 +20,10 @@ const { title, description, time, tags, date, url = "/" } = Astro.props;
   <div class="text-sm italic flex space-x-2">
     <p>{date}</p><p>∙</p><p>{time} minute read</p>
   </div>
-  <ul class="flex text-xs space-x-2">
+  <ul class="flex flex-wrap text-xs">
     {
       tags.map((tag) => (
-        <li class="border rounded-full p-2 border-slate-400 dark:border-slate-500">
+        <li class="border rounded-full px-2.5 py-1 mr-2 mb-2.5 whitespace-nowrap border-slate-400 dark:border-slate-500">
           {tag}
         </li>
       ))

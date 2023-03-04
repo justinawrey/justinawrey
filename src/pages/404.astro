@@ -1,25 +1,22 @@
 ---
 import Shell from "../layouts/Shell.astro";
 import Link from "../components/Link.astro";
-import CenterPanel from "../components/CenterPanel.astro";
 ---
 
 <Shell>
-  <CenterPanel>
-    <h1 class="text-2xl mb-2 dark:text-slate-300">Uh-oh! (404)</h1>
-    <p class="mb-2">
-      You weren't supposed to get here. You can go elsewhere on this site... but
-      definitely not here. Lets pretend this never happened!
-    </p>
-    <nav>
-      <ul>
-        <li>
-          → <Link href="/">home</Link>
-        </li>
-        <li>
-          → <Link href="/blog">blog</Link>
-        </li>
-      </ul>
-    </nav>
-  </CenterPanel>
+  <h1 class="text-2xl mb-2 dark:text-slate-300">Uh-oh! (404)</h1>
+  <p class="mb-2">
+    You weren't supposed to get here. You can go elsewhere on this site... but
+    definitely not here. Lets pretend this never happened!
+  </p>
+  <nav>
+    <ul>
+      <li>
+        → <Link href="/">home</Link>
+      </li>
+      <li>
+        → <Link href="/blog">blog</Link>
+      </li>
+    </ul>
+  </nav>
 </Shell>

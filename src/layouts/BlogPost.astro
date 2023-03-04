@@ -1,12 +1,14 @@
 ---
 import Shell from "./Shell.astro";
-import ScrollPanel from "../components/ScrollPanel.astro";
+
+const proseClasses =
+  "prose prose-slate dark:prose-invert dark:prose-headings:text-slate-300 dark:prose-p:text-slate-400 dark:prose-strong:text-slate-300 dark:prose-ol:text-slate-400 dark:prose-ul:text-slate-400 dark:prose-a:text-slate-300 hover:dark:prose-a:text-slate-200 hover:prose-a:text-slate-600";
 ---
 
-<Shell>
-  <ScrollPanel
-    class="h-full prose prose-slate dark:prose-invert dark:prose-headings:text-slate-300 dark:prose-p:text-slate-400 dark:prose-strong:text-slate-300 dark:prose-ol:text-slate-400 dark:prose-ul:text-slate-400 dark:prose-a:text-slate-300 hover:dark:prose-a:text-slate-200 hover:prose-a:text-slate-600"
-  >
-    <slot />
-  </ScrollPanel>
+<Shell mainClasses={`${proseClasses}`}>
+  <br />
+  <br />
+  <br />
+  <slot />
+  <br />
 </Shell>

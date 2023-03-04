@@ -1,6 +1,5 @@
 ---
 import Shell from "../../layouts/Shell.astro";
-import ScrollPanel from "../../components/ScrollPanel.astro";
 import PostPreview from "../../components/PostPreview.astro";
 
 const posts = await Astro.glob("../blog/*.md");
@@ -11,24 +10,22 @@ posts.sort((a, b) => {
 ---
 
 <Shell>
-  <ScrollPanel class="h-full w-1/2">
-    <ul class="space-y-20 my-10">
-      {
-        posts.map(
-          ({ frontmatter: { title, time, tags, description, date }, url }) => (
-            <li class="border-l-4 border-gray-200 hover:border-gray-300 dark:border-slate-700 hover:dark:border-slate-600 pl-6">
-              <PostPreview
-                date={date}
-                description={description}
-                title={title}
-                time={time}
-                tags={tags}
-                url={url}
-              />
-            </li>
-          )
+  <ul class="space-y-20 my-20">
+    {
+      posts.map(
+        ({ frontmatter: { title, time, tags, description, date }, url }) => (
+          <li class="border-l-4 border-gray-200 hover:border-gray-300 dark:border-slate-700 hover:dark:border-slate-600 pl-6">
+            <PostPreview
+              date={date}
+              description={description}
+              title={title}
+              time={time}
+              tags={tags}
+              url={url}
+            />
+          </li>
         )
-      }
-    </ul>
-  </ScrollPanel>
+      )
+    }
+  </ul>
 </Shell>
