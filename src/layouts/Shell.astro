@@ -1,6 +1,8 @@
 ---
 import Svg from "../components/Svg.astro";
 import Nav from "../components/Nav.astro";
+
+const path = Astro.url.pathname;
 ---
 
 <html
@@ -113,7 +115,7 @@ import Nav from "../components/Nav.astro";
   <body
     class="font-mono h-full w-full flex flex-col items-center justify-center dark:bg-gray-800 dark:text-slate-400"
   >
-    <Nav />
+    {path !== "/" ? <Nav /> : null}
     <slot />
 
     <!-- Fixed footer -->
