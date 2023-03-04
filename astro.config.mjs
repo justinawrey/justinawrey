@@ -7,5 +7,10 @@ import deno from "@astrojs/deno";
 export default defineConfig({
   integrations: [tailwind()],
   output: "server",
-  adapter: deno()
+  adapter: deno(),
+  markdown: {
+    shikiConfig: {
+      theme: "poimandres"
+    }
+  }
 });
