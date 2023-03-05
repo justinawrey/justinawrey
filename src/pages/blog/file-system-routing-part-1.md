@@ -47,7 +47,7 @@ More sophisticated file system routers will also handle things like advanced pat
 
 ## Defining route handlers
 
-Each file in the pages directory will export as its default export a function takes a [**Request**](https://developer.mozilla.org/en-US/docs/Web/API/Request) object and returns a [**Response**](https://developer.mozilla.org/en-US/docs/Web/API/Response) object:
+Each file in the pages directory will export as its default export a function takes a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object and returns a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object:
 
 ```typescript
 // pages/index.ts
@@ -67,7 +67,7 @@ Both **Request** and **Response** are part of the standard web API. Thankfully, 
 
 ## Our entry point
 
-Let's start from the top down. We'll start the file system router by running **mod.ts**. We can use Deno's standard [http server](https://deno.land/std@0.177.0/http/server.ts?s=serve) which expects a [**Handler**](https://deno.land/std@0.177.0/http/server.ts?s=Handler) as its first argument. Conveniently, a **Handler** is just a function that takes a **Request** object and returns a **Response** object. Keen eyes will notice that this is a similar shape to our file route handlers as defined above.
+Let's start from the top down. We'll start the file system router by running **mod.ts**. We can use Deno's standard [http server](https://deno.land/std@0.177.0/http/server.ts?s=serve) which expects a [Handler](https://deno.land/std@0.177.0/http/server.ts?s=Handler) as its first argument. Conveniently, a **Handler** is just a function that takes a **Request** object and returns a **Response** object. Keen eyes will notice that this is a similar shape to our file route handlers as defined above.
 
 ```typescript
 // mod.ts
@@ -82,7 +82,7 @@ serve(fsHandler);
 
 The **Handler** type can receive more than one input parameter. We only care about the first parameter (the **Request**) for now. We'll use a spread to reference the rest of the arguments as **...rest** for now.
 
-We'll also provide our router's root directory to our script by passing it in as a command line argument. We can easily do this with [**Deno.args**](https://examples.deno.land/command-line-arguments):
+We'll also provide our router's root directory to our script by passing it in as a command line argument. We can easily do this with [Deno.args](https://examples.deno.land/command-line-arguments):
 
 ```typescript
 // mod.ts
@@ -101,7 +101,7 @@ Now, running this file with the command **"deno run mod.ts ./pages"** will start
 
 ## Step 1: discovering routes
 
-So we've defined how each route will handle requests, but we still need a way of discovering the files on disk. For this, we can use Deno's [**fs.walk**](https://deno.land/std/fs/walk.ts) function from the standard library.
+So we've defined how each route will handle requests, but we still need a way of discovering the files on disk. For this, we can use Deno's [fs.walk](https://deno.land/std/fs/walk.ts) function from the standard library.
 
 ```typescript
 // mod.ts
@@ -146,7 +146,7 @@ const fsHandler: Handler = (req, ...rest) {
 serve(fsHandler);
 ```
 
-Here, we've added a **discoverFiles** function. This function takes our root directory and passes it to **fs.walk**. We then collect all of the results from **fs.walk** and return them as an array of [**fs.WalkEntry**](https://deno.land/std/fs/walk.ts?s=WalkEntry) objects.
+Here, we've added a **discoverFiles** function. This function takes our root directory and passes it to **fs.walk**. We then collect all of the results from **fs.walk** and return them as an array of [fs.WalkEntry](https://deno.land/std/fs/walk.ts?s=WalkEntry) objects.
 
 At this point, all we've done is walked the file system to discover some information about the files we've supplied. You can check out the Deno documentation to see the full type information for **fs.WalkEntry**, but for now just know that the results will look something like this:
 
@@ -174,7 +174,7 @@ At this point, all we've done is walked the file system to discover some informa
 
 Remember that each route file exports a **Handler** type as its default export. We will access handlers as defined in each file by dynamically importing the file and accessing its default export.
 
-For convenience, we'll need a way to store each route in memory alongside its corresponding **Handler** function. We can use the built-in [**Map**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) type for this.
+For convenience, we'll need a way to store each route in memory alongside its corresponding **Handler** function. We can use the built-in [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) type for this.
 
 ```typescript
 // mod.ts
@@ -356,7 +356,7 @@ serve(fsHandler);
 
 The logic here is simple. When a **Request** comes in from the browser, we check the path name from the URL. If the route exists in our **HandlerMap**, it means that we should route the request to the corresponding **Handler** from the map. If the route does not exist in our **HandlerMap**, it means that a file for this route does not exist. In that case, we can just return a 404 response.
 
-Notice that since **fsHandler** is of type **Handler**, and our defined handler functions from each file also satisfy the same type, we can directly pass through the rest of the arguments using **...rest**. (If you're curious, the second argument to the **Handler** type is a [**ConnInfo**](https://deno.land/std/http/server.ts?s=ConnInfo) object, which holds some information about the underlying socket connection).
+Notice that since **fsHandler** is of type **Handler**, and our defined handler functions from each file also satisfy the same type, we can directly pass through the rest of the arguments using **...rest**. (If you're curious, the second argument to the **Handler** type is a [ConnInfo](https://deno.land/std/http/server.ts?s=ConnInfo) object, which holds some information about the underlying socket connection).
 
 ## Next steps
 
