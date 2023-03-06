@@ -42,7 +42,9 @@ const { mainClasses, bodyClasses } = Astro.props;
         circle.style.borderRadius = "50%";
         circle.style.width = `${circleSize}px`;
         circle.style.height = `${circleSize}px`;
-        circle.style.backgroundColor = "grey";
+        circle.style.backgroundColor = getComputedStyle(
+          document.documentElement
+        ).getPropertyValue("--ripple-color");
         circle.style.opacity = "0.2";
         circle.style.animation = `ripple ${lifetime}s ease-out`;
         circle.style.pointerEvents = "none";
@@ -85,23 +87,28 @@ const { mainClasses, bodyClasses } = Astro.props;
       const button = document.getElementById("theme-toggle")!;
 
       function setText() {
-        button.innerText = isDark
-          ? "switch to light mode"
-          : "switch to dark mode";
+        button.innerText = isDark ? "light" : "dark";
       }
 
       function setTheme() {
         localStorage.setItem("theme", isDark ? "dark" : "light");
       }
 
+      function setRippleColor() {
+        const color = isDark ? "white" : "black";
+        document.documentElement.style.setProperty("--ripple-color", color);
+      }
+
       setText();
       setTheme();
+      setRippleColor();
 
       button.addEventListener("click", () => {
         isDark = !isDark;
         document.documentElement.classList.toggle("dark");
         setText();
         setTheme();
+        setRippleColor();
       });
     </script>
     <style>
@@ -129,7 +136,7 @@ const { mainClasses, bodyClasses } = Astro.props;
       <div class="flex space-x-1.5 md:space-x-2 items-end">
         <button
           id="theme-toggle"
-          class="underline hover:text-slate-600 hover:dark:text-slate-300 md:-mb-0.5"
+          class="underline hover:text-slate-600 hover:dark:text-slate-200 dark:text-slate-300 md:-mb-0.5"
         >
         </button>
         <a
