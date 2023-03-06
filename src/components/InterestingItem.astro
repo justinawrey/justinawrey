@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date?: string;
+  time?: number;
+  tags?: string[];
+  subtitle?: string;
+  url: string | undefined;
+}
+
+const {
+  title,
+  description,
+  time,
+  tags,
+  date,
+  url = "/",
+  subtitle,
+} = Astro.props;
+
+const hasTime = time !== undefined;
+const hasDate = date !== undefined;
+const hasSubtitle = subtitle !== undefined;
+---
+
+<a href={url}>
+  <p
+    class={`font-bold text-2xl dark:text-slate-100${
+      hasSubtitle ? "" : " mb-6"
+    }`}
+  >
+    {title}
+  </p>
+  {
+    hasSubtitle ? (
+      <p class="text-sm dark:text-slate-300 my-3 italic">{subtitle}</p>
+    ) : null
+  }
+  <div class="space-y-6">
+    {
+      hasTime || hasDate ? (
+        <div class="text-sm italic flex space-x-2 dark:text-slate-300">
+          {hasDate ? <p>{date}</p> : null}
+          {hasDate && hasTime ? <p>∙</p> : null}
+          {hasTime ? <p>{time} minute read</p> : null}
+        </div>
+      ) : null
+    }
+    <p class="">{description}</p>
+
+    {
+      tags?.length ? (
+        <ul class="flex flex-wrap text-xs">
+          {tags.map((tag) => (
+            <li class="border rounded-full px-2.5 py-1 mr-2 mb-2.5 whitespace-nowrap border-slate-400 dark:border-slate-500">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      ) : null
+    }
+  </div>
+</a>

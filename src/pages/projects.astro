@@ -1,0 +1,48 @@
+---
+import Shell from "../layouts/Shell.astro";
+import InterestingItem from "../components/InterestingItem.astro";
+
+interface Project {
+  title: string;
+  description: string;
+  url: string;
+  subtitle: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Chip-8",
+    description:
+      "The hello world equivalent of emulation (interpretation, really) at its finest.  Built mainly out of curiosity, but also to ensure that my hardware-specific engineering degree was at least of some use.",
+    url: "https://chip8.deno.dev",
+    subtitle: "chip8.deno.dev",
+  },
+  {
+    title: "fsrouter",
+    description:
+      "Easy file system routing for Deno, including support for Deno Deploy.",
+    url: "https://github.com/justinawrey/fsrouter",
+    subtitle: "github.com/justinawrey/fsrouter",
+  },
+];
+---
+
+<Shell
+  mainClasses="max-w-2xl"
+  bodyClasses="flex justify-center"
+>
+  <ul class="my-24 space-y-12">
+    {
+      projects.map(({ title, description, url, subtitle }) => (
+        <li class="border-l-4 border-gray-200 hover:border-gray-300 dark:border-slate-700 hover:dark:border-slate-600 pl-6">
+          <InterestingItem
+            description={description}
+            title={title}
+            subtitle={subtitle}
+            url={url}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</Shell>

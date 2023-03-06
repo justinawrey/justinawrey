@@ -1,6 +1,6 @@
 ---
 import Shell from "../../layouts/Shell.astro";
-import PostPreview from "../../components/PostPreview.astro";
+import InterestingItem from "../../components/InterestingItem.astro";
 
 const posts = await Astro.glob("../blog/*.md");
 posts.sort((a, b) => {
@@ -18,7 +18,7 @@ posts.sort((a, b) => {
       posts.map(
         ({ frontmatter: { title, time, tags, description, date }, url }) => (
           <li class="border-l-4 border-gray-200 hover:border-gray-300 dark:border-slate-700 hover:dark:border-slate-600 pl-6">
-            <PostPreview
+            <InterestingItem
               date={date}
               description={description}
               title={title}
